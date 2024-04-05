@@ -21,9 +21,8 @@ _What currently uninfested stands of Eastern hemlock are vulnerable to HWA?_
 
 To answer these questions, I will use the case study of two states: Pennsylvania and New York
 
-![picure of branch of Eastern hemlock with HWA on it the branch, HWA appears as white balls of fuzz](figures/HWA_example.JPG)
 
-
+<img src="figures/HWA_example.JPG" alt="picure of branch of Eastern hemlock with HWA on it the branch, HWA appears as white balls of fuzz" width="500"/>
 Picture of HWA on a branch 
 
 ## Data
