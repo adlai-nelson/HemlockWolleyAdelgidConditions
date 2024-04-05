@@ -21,3 +21,15 @@ _What currently uninfested stands of Eastern hemlock are vulnerable to HWA?_
 
 To answer these questions, I will use the case study of two states: Pennsylvania and New York
 
+## Data
+
+| Layer Name                 | Data type            | Format | Source                   | Notes                                        |
+|----------------------------|----------------------|--------|--------------------------|----------------------------------------------|
+| Presence of HWA            | point, polygon, line | .shp   | imapinvasives.net        |                                              |
+| NY and PA polygons         | polygon              | .shp   | Natural Earth            |                                              |
+| NY and PA roads            | line                 | .shp   | tbd (natural earth? OSM) |                                              |
+| Eastern Hemlock Basal Area | raster image         | .tif   | Barry et al., 2013       | 250 m resolution                             |
+| Temperature                | raster image         | .tif   | NASA- MODIS              | MODIS, mean of warmest and coldest months    |
+| Terrain Products           | images               |        | USGS                     | Slope, Aspect                                |
+| Annual Rainfall            | raster               | .tif   | NOAA                     |                                              |
+| Land Cover                 | raster               | .tif   | NLCD                     | may or may not be included in final analysis |
