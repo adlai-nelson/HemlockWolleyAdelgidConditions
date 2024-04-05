@@ -2,11 +2,15 @@
 
 _Adlai Nelson_
 
+## Contents
+
+- Submissions folder
+  * contains outline
 
 ## Introduction
 
-Hemlock Wolley Adelgid (HWA, Adelges tsugae) is a host specific invasive species whose hosts include hemlock species. 
-Eastern hemlock (Tsuga Canadensis) are particularly important to riparian ecosystems in the Northeast US. 
+Hemlock Wolley Adelgid (HWA, _Adelges tsugae_) is a host specific invasive species whose hosts include hemlock species. 
+Eastern hemlock (_Tsuga Canadensis_) are particularly important to riparian ecosystems in the Northeast US. 
 HWA has spread rapidly since it’s introduction to the US in the 1950s, where it is known to cause mortality in Eastern Hemlock.
 
 This research project aims to answer the following questions:
