@@ -9,7 +9,7 @@ _Adlai Nelson_
 
 ## Introduction
 
-Hemlock Wolley Adelgid (HWA, _Adelges tsugae_) is a host specific invasive species whose hosts include hemlock species. 
+Hemlock Woolly Adelgid (HWA, _Adelges tsugae_) is a host specific invasive species whose hosts include hemlock species. 
 Eastern hemlock (_Tsuga Canadensis_) are particularly important to riparian ecosystems in the Northeast US. 
 HWA has spread rapidly since it’s introduction to the US in the 1950s, where it is known to cause mortality in Eastern Hemlock.
 
@@ -23,7 +23,7 @@ To answer these questions, I will use the case study of two states: Pennsylvania
 
 
 <img src="figures/HWA_example.JPG" alt="picure of branch of Eastern hemlock with HWA on it the branch, HWA appears as white balls of fuzz" width="500"/>
-Picture of HWA on a branch 
+_Hemlock Woolly Adelgid ovisacs appear as small wooley masses at the base of needles_
 
 ## Data
 
