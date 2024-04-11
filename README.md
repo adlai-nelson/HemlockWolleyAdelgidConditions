@@ -24,7 +24,7 @@ To answer these questions, I will use the case study of two states: Pennsylvania
 
 <img src="figures/HWA_example.JPG" alt="picure of branch of Eastern hemlock with HWA on it the branch, HWA appears as white balls of fuzz" width="500"/>
 
-_Hemlock Woolly Adelgid ovisacs appear as small wooley masses at the base of needles_
+_Hemlock Woolly Adelgid ovisacs appear as small woolly masses at the base of needles_
 
 ## Data
 
@@ -37,3 +37,14 @@ _Hemlock Woolly Adelgid ovisacs appear as small wooley masses at the base of nee
 | Temperature                | raster image         | .tif   | NASA- MODIS                 | MODIS, mean of warmest and coldest months    |
 | Terrain Products           | images               | .tif   | SRTM via OpenTopography.org | Slope, Aspect                                |
 | Annual Rainfall            | raster               | .tif   | NOAA                        |                                              |
+
+NY and PA roads were not representative of all roads, especially ones on smaller scales, however, I chose to use this dataset rather than state GIS management GIS datasets. 
+Distance from roads is included as a proxy for ease of access, as sites closer to major roads likely have more exposure to people, who may spread HWA.
+
+### Preprocessing
+
+
+All layers were reprojected to WGS 84, for the purpose of simplicity. 
+Terrain products were calculated from a 90m SRTM raster image using QGIS tools. 
+NY and PA roads were selected. 
+
