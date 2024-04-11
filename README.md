@@ -27,13 +27,12 @@ _Hemlock Woolly Adelgid ovisacs appear as small wooley masses at the base of nee
 
 ## Data
 
-| Layer Name                 | Data type            | Format | Source                   | Notes                                        |
-|----------------------------|----------------------|--------|--------------------------|----------------------------------------------|
-| Presence of HWA            | point, polygon, line | .shp   | imapinvasives.net        |                                              |
-| NY and PA polygons         | polygon              | .shp   | Natural Earth            |                                              |
-| NY and PA roads            | line                 | .shp   | tbd (natural earth? OSM) |                                              |
-| Eastern Hemlock Basal Area | raster image         | .tif   | Barry et al., 2013       | 250 m resolution                             |
-| Temperature                | raster image         | .tif   | NASA- MODIS              | MODIS, mean of warmest and coldest months    |
-| Terrain Products           | images               |        | USGS                     | Slope, Aspect                                |
-| Annual Rainfall            | raster               | .tif   | NOAA                     |                                              |
-| Land Cover                 | raster               | .tif   | NLCD                     | may or may not be included in final analysis |
+| Layer Name                 | Data type            | Resolution | Source                      | Notes                                        |
+|----------------------------|----------------------|--------|-----------------------------|----------------------------------------------|
+| Presence of HWA            | point, polygon, line | .shp   | imapinvasives.net           |                                              |
+| NY and PA polygons         | polygon              | .shp   | Natural Earth               |                                              |
+| NY and PA roads            | line                 | .shp   | tbd (natural earth? OSM)    |                                              |
+| Eastern Hemlock Basal Area | raster image         | 250 m   | Barry et al., 2013          | square feet per acre                       |
+| Temperature                | raster image         | .tif   | NASA- MODIS                 | MODIS, mean of warmest and coldest months    |
+| Terrain Products           | images               | .tif   | SRTM via OpenTopography.org | Slope, Aspect                                |
+| Annual Rainfall            | raster               | .tif   | NOAA                        |                                              |
