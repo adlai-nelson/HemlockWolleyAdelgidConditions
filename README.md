@@ -34,9 +34,9 @@ _Hemlock Woolly Adelgid ovisacs appear as small woolly masses at the base of nee
 | NY and PA polygons         | polygon              | .shp   | Natural Earth               |                                              |
 | NY and PA roads            | line                 | .shp   | tbd (natural earth? OSM)    |                                              |
 | Eastern Hemlock Basal Area | raster image         | 250 m   | Barry et al., 2013          | square feet per acre                       |
-| Temperature                | raster image         | .tif   | NASA- MODIS                 | MODIS, mean of warmest and coldest months    |
+| Temperature                | raster image         | .tif   | University of Delaware Terrestrial Precipitation data provided by the NOAA PSL, Boulder, Colorado, USA, from their website at https://psl.noaa.gov                  | MODIS, mean of warmest and coldest months    |
 | Terrain Products           | images               | .tif   | SRTM via OpenTopography.org | Slope, Aspect                                |
-| Annual Rainfall            | raster               | .tif   | NOAA                        |                                              |
+| Annual Rainfall            | raster               | .tif   | University of Delaware Terrestrial Precipitation data provided by the NOAA PSL, Boulder, Colorado, USA, from their website at https://psl.noaa.gov                        |                                              |
 
 NY and PA roads were not representative of all roads, especially ones on smaller scales, however, I chose to use this dataset rather than state GIS management GIS datasets. 
 Distance from roads is included as a proxy for ease of access, as sites closer to major roads likely have more exposure to people, who may spread HWA.
@@ -48,3 +48,4 @@ All layers were reprojected to WGS 84, for the purpose of simplicity.
 Terrain products were calculated from a 90m SRTM raster image using QGIS tools. 
 NY and PA roads were selected. 
 
+Using the centroid tool in QGIS, I extracted centroids for all polygon and line HWA presence observations
