@@ -1,4 +1,4 @@
-# Identifying Conditions of Hemlock Wolley Adelgid in Northeastern US
+# Identifying Conditions of Hemlock Woolly Adelgid in Northeastern US
 
 _Adlai Nelson_
 
