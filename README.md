@@ -23,6 +23,7 @@ To answer these questions, I will use the case study of two states: Pennsylvania
 
 
 <img src="figures/HWA_example.JPG" alt="picure of branch of Eastern hemlock with HWA on it the branch, HWA appears as white balls of fuzz" width="500"/>
+
 _Hemlock Woolly Adelgid ovisacs appear as small wooley masses at the base of needles_
 
 ## Data
