@@ -28,15 +28,16 @@ _Hemlock Woolly Adelgid ovisacs appear as small woolly masses at the base of nee
 
 ## Data
 
-| Layer Name                 | Data type            | Resolution | Source                      | Notes                                        |
-|----------------------------|----------------------|--------|-----------------------------|----------------------------------------------|
-| Presence of HWA            | point, polygon, line | .shp   | imapinvasives.net           |                                              |
-| NY and PA polygons         | polygon              | .shp   | Natural Earth               |                                              |
-| NY and PA roads            | line                 | .shp   | tbd (natural earth? OSM)    |                                              |
-| Eastern Hemlock Basal Area | raster image         | 250 m   | Barry et al., 2013          | square feet per acre                       |
-| Temperature                | raster image         | .tif   | University of Delaware Terrestrial Precipitation data provided by the NOAA PSL, Boulder, Colorado, USA, from their website at https://psl.noaa.gov                  | MODIS, mean of warmest and coldest months    |
-| Terrain Products           | images               | .tif   | SRTM via OpenTopography.org | Slope, Aspect                                |
-| Annual Rainfall            | raster               | .tif   | University of Delaware Terrestrial Precipitation data provided by the NOAA PSL, Boulder, Colorado, USA, from their website at https://psl.noaa.gov                        |                                              |
+| Layer Name                 | Data type            | Resolution      | Date      | Source              | Notes                                                                 |
+|----------------------------|----------------------|-----------------|-----------|---------------------|-----------------------------------------------------------------------|
+| Presence of HWA            | point, polygon, line |                 | 2024      | imapinvasives.net   |                                                                       |
+| NY and PA polygons         | polygon              |                 |           | Natural Earth       |                                                                       |
+| NY and PA roads            | line                 |                 |           | Natural Earth       |                                                                       |
+| Eastern Hemlock Basal Area | raster image         | 250 m           | 2000-2009 | Barry et al. (2013) | 250 m resolution                                                      |
+| Temperature                | raster image         | 2.5 arc minutes | 1970-2000 | WorldClim           | max temperature of warmest month and min temperature of coldest month |
+| Terrain Products           | images               | 90 meters       | 2013      | SRTM                | Slope, Aspect, Elevation                                              |
+| Annual Rainfall            | raster               | 2.5 arc minutes | 1970-2000 | WorldClim           | Mean rainfall (mm)                                                    |
+| Land Cover                 | raster               | 30 meters       |           | NLCD                | may or may not be included in final analysis                          |
 
 NY and PA roads were not representative of all roads, especially ones on smaller scales, however, I chose to use this dataset rather than state GIS management GIS datasets. 
 Distance from roads is included as a proxy for ease of access, as sites closer to major roads likely have more exposure to people, who may spread HWA.
@@ -49,3 +50,14 @@ Terrain products were calculated from a 90m SRTM raster image using QGIS tools.
 NY and PA roads were selected. 
 
 Using the centroid tool in QGIS, I extracted centroids for all polygon and line HWA presence observations
+
+
+### Citations
+
+iMapInvasives: NatureServe’s online data system supporting strategic invasive species management. © [2024], NatureServe. Available at http://www.imapinvasives.org. (Date accessed: [01,04,2024].)
+
+NASA Shuttle Radar Topography Mission (SRTM)(2013). Shuttle Radar Topography Mission (SRTM) Global. Distributed by OpenTopography. https://doi.org/10.5069/G9445JDF. Accessed: 2024-04-11 
+
+Wilson, Barry Tyler; Lister, Andrew J.; Riemann, Rachel I.; Griffith, Douglas M. 2013. Live tree species basal area of the contiguous United States (2000-2009). Newtown Square, PA: USDA Forest Service, Rocky Mountain Research Station. https://doi.org/10.2737/RDS-2013-0013
+
+Fick, S.E. and R.J. Hijmans, 2017. WorldClim 2: new 1km spatial resolution climate surfaces for global land areas. International Journal of Climatology 37 (12): 4302-4315. 
