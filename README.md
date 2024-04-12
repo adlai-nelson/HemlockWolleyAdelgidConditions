@@ -21,7 +21,6 @@ To answer these questions, I will use the case study of two states: Pennsylvania
 
 _Hemlock Woolly Adelgid ovisacs appear as small woolly masses at the base of needles_
 
-<img src="figures/studyarea.png" alt="map of NY and PA with Eastern Hemlock basal area dataset and HWA confirmed points" width="900"/>
 
 ## Data
 
@@ -41,7 +40,12 @@ imapinvasives.net partners with agencies in states to record observations, and t
 | Terrain Products           | images               | 90 meters       | 2013      | SRTM                | Slope, Aspect, Elevation                                              |
 | Annual Rainfall            | raster               | 2.5 arc minutes | 1970-2000 | WorldClim           | Mean rainfall (mm)                                                    |
 
-<img src="figures/environ_vars.png" alt="map of environmental and physical vairables" width="900"/>
+Terrain varibales included are elevation, slope, aspect. These will be used to asses if there is a relationship between HWA infestations and these variables. 
+These data were created from a DEM from SRTM.
+Environmental variables include the mean annual rainfall. minimum temperature of coldest month and maximum temperature of the warmest month. 
+These datasets all come from WoldClim, and are long term averages over 30 years.
+
+<img src="figures/environ_vars.png" alt="map of environmental and terrain vairables" width="900"/>
 <img src="figures/roads.png" alt="map of roads in study area" width="300"/>
 
 
@@ -52,9 +56,14 @@ Distance from roads is included as a proxy for ease of access, as sites closer t
 
 
 All spatial data preprocessing took place is QGIS 3.28.14.
-All layers were reprojected to EPSG 5070, NAD 83 Conus Albers. 
-All layers were clipped to the study area, including raster images.
-The 
+All layers were reprojected to EPSG 5070, NAD 83 Conus Albers, using reproject and warp (reproject) tools. 
+All layers were clipped to the study area, using the clip and clip raster by mask layer tools.
+The HWA observations layer was distributed as three seperate layers: points, lines, and polygons. 
+To combine these datasets, the centroid tool was used to calculate the centroid of each line any polygon feature.
+The resultant features were merged with the points layer, to create a layer containing all observations in point form.
+Slope and aspect layers were calculated in QGIS after being reprojected from the SRTM DEM.
+
+Data was then exported to .sql files using the shp2pgsql and raster2pgsql utilities.
 
 ### Normalization
 
