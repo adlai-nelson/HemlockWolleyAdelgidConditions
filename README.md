@@ -32,7 +32,7 @@ imapinvasives.net partners with agencies in states to record observations, and t
 
 | Layer Name                 | Data type            | Resolution      | Date      | Source              | Notes                                                                 |
 |----------------------------|----------------------|-----------------|-----------|---------------------|-----------------------------------------------------------------------|
-| Presence of HWA            | point, polygon, line |       n/a       | 2024      | imapinvasives.net   |    Presence of HWA confirmed                                                                     |
+| Presence of HWA            | point, polygon, line |       n/a       | 2024      | imapinvasives.net   |    Presence of HWA confirmed by state agencies                                       |
 | NY and PA                  | polygon              |       n/a       | 2024      | Natural Earth       |      Study Area                                                       |
 | NY and PA roads            | line                 |          n/a    |  2024     | Natural Earth       |  Major Roads                                                          |
 | Eastern Hemlock Basal Area | raster image         | 250 m           | 2000-2009 | Barry et al. (2013) | 250 m resolution                                                      |
@@ -61,9 +61,9 @@ All layers were clipped to the study area, using the clip and clip raster by mas
 The HWA observations layer was distributed as three seperate layers: points, lines, and polygons. 
 To combine these datasets, the centroid tool was used to calculate the centroid of each line any polygon feature.
 The resultant features were merged with the points layer, to create a layer containing all observations in point form.
-Slope and aspect layers were calculated in QGIS after being reprojected from the SRTM DEM.
+Slope and aspect layers were calculated in QGIS form the STRM DEM after it was reprojected. 
 
-Data was then exported to .sql files using the shp2pgsql and raster2pgsql utilities.
+Data was then exported to .sql files using the shp2pgsql and raster2pgsql utilities (see submissions/importing_commands.txt).
 
 ### Normalization
 
