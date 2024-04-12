@@ -46,11 +46,9 @@ Environmental variables include the mean annual rainfall, minimum temperature of
 These datasets all come from WoldClim, and are long term averages over 30 years. 
 
 <img src="figures/environ_vars.png" alt="map of environmental and terrain vairables" width="900"/>
+
 <img src="figures/roads.png" alt="map of roads in study area" width="300"/>
 
-
-NY and PA roads were not representative of all roads, especially ones on smaller scales, however, I chose to use this dataset rather than state GIS management GIS datasets. 
-Distance from roads is included as a proxy for ease of access, as sites closer to major roads likely have more exposure to people, who may spread HWA.
 
 ### Preprocessing
 
@@ -59,9 +57,9 @@ All spatial data preprocessing took place is QGIS 3.28.14.
 All layers were reprojected to EPSG 5070, NAD 83 Conus Albers, using reproject and warp (reproject) tools. 
 All layers were clipped to the study area, using the clip and clip raster by mask layer tools.
 The HWA observations layer was distributed as three seperate layers: points, lines, and polygons. 
-To combine these datasets, the centroid tool was used to calculate the centroid of each line any polygon feature.
+To combine these datasets, the centroid tool was used to calculate the centroid of each line and polygon feature.
 The resultant features were merged with the points layer, to create a layer containing all observations in point form.
-Slope and aspect layers were calculated in QGIS form the STRM DEM after it was reprojected. 
+Slope and aspect layers were calculated in QGIS from the STRM DEM after it was reprojected. 
 
 Data was then exported to .sql files using the shp2pgsql and raster2pgsql utilities (see submissions/importing_commands.txt).
 
