@@ -32,9 +32,9 @@ imapinvasives.net partners with agencies in states to record observations, and t
 
 | Layer Name                 | Data type            | Resolution      | Date      | Source              | Notes                                                                 |
 |----------------------------|----------------------|-----------------|-----------|---------------------|-----------------------------------------------------------------------|
-| Presence of HWA            | point, polygon, line |                 | 2024      | imapinvasives.net   |                                                                       |
-| NY and PA                  | polygon              |                 |           | Natural Earth       |      Study Area                                                       |
-| NY and PA roads            | line                 |                 |           | Natural Earth       |  Major Roads                                                          |
+| Presence of HWA            | point, polygon, line |       n/a       | 2024      | imapinvasives.net   |    Presence of HWA confirmed                                                                     |
+| NY and PA                  | polygon              |       n/a       | 2024      | Natural Earth       |      Study Area                                                       |
+| NY and PA roads            | line                 |          n/a    |  2024     | Natural Earth       |  Major Roads                                                          |
 | Eastern Hemlock Basal Area | raster image         | 250 m           | 2000-2009 | Barry et al. (2013) | 250 m resolution                                                      |
 | Temperature                | raster image         | 2.5 arc minutes | 1970-2000 | WorldClim           | max temperature of warmest month and min temperature of coldest month |
 | Terrain Products           | images               | 90 meters       | 2013      | SRTM                | Slope, Aspect, Elevation                                              |
@@ -42,8 +42,8 @@ imapinvasives.net partners with agencies in states to record observations, and t
 
 Terrain varibales included are elevation, slope, aspect. These will be used to asses if there is a relationship between HWA infestations and these variables. 
 These data were created from a DEM from SRTM.
-Environmental variables include the mean annual rainfall. minimum temperature of coldest month and maximum temperature of the warmest month. 
-These datasets all come from WoldClim, and are long term averages over 30 years.
+Environmental variables include the mean annual rainfall, minimum temperature of coldest month and maximum temperature of the warmest month. 
+These datasets all come from WoldClim, and are long term averages over 30 years. 
 
 <img src="figures/environ_vars.png" alt="map of environmental and terrain vairables" width="900"/>
 <img src="figures/roads.png" alt="map of roads in study area" width="300"/>
