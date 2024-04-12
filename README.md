@@ -2,11 +2,6 @@
 
 _Adlai Nelson_
 
-## Contents
-
-- Submissions folder
-  * contains outline
-
 ## Introduction
 
 Hemlock Woolly Adelgid (HWA, _Adelges tsugae_) is a host specific invasive species whose hosts include hemlock species. 
@@ -26,18 +21,29 @@ To answer these questions, I will use the case study of two states: Pennsylvania
 
 _Hemlock Woolly Adelgid ovisacs appear as small woolly masses at the base of needles_
 
+<img src="figures/studyarea.png" alt="map of NY and PA with Eastern Hemlock basal area dataset and HWA confirmed points" width="900"/>
+
 ## Data
+
+<img src="figures/studyarea.png" alt="map of NY and PA with Eastern Hemlock basal area dataset and HWA confirmed points" width="900"/>
+
+The study area includes the states of Pennsylvania and New York. This is due to data availability.
+imapinvasives.net partners with agencies in states to record observations, and these two states are two of the few states that have this partenership.
+
 
 | Layer Name                 | Data type            | Resolution      | Date      | Source              | Notes                                                                 |
 |----------------------------|----------------------|-----------------|-----------|---------------------|-----------------------------------------------------------------------|
 | Presence of HWA            | point, polygon, line |                 | 2024      | imapinvasives.net   |                                                                       |
-| NY and PA polygons         | polygon              |                 |           | Natural Earth       |                                                                       |
-| NY and PA roads            | line                 |                 |           | Natural Earth       |                                                                       |
+| NY and PA                  | polygon              |                 |           | Natural Earth       |      Study Area                                                       |
+| NY and PA roads            | line                 |                 |           | Natural Earth       |  Major Roads                                                          |
 | Eastern Hemlock Basal Area | raster image         | 250 m           | 2000-2009 | Barry et al. (2013) | 250 m resolution                                                      |
 | Temperature                | raster image         | 2.5 arc minutes | 1970-2000 | WorldClim           | max temperature of warmest month and min temperature of coldest month |
 | Terrain Products           | images               | 90 meters       | 2013      | SRTM                | Slope, Aspect, Elevation                                              |
 | Annual Rainfall            | raster               | 2.5 arc minutes | 1970-2000 | WorldClim           | Mean rainfall (mm)                                                    |
-| Land Cover                 | raster               | 30 meters       |           | NLCD                | may or may not be included in final analysis                          |
+
+<img src="figures/environ_vars.png" alt="map of environmental and physical vairables" width="900"/>
+<img src="figures/roads.png" alt="map of roads in study area" width="300"/>
+
 
 NY and PA roads were not representative of all roads, especially ones on smaller scales, however, I chose to use this dataset rather than state GIS management GIS datasets. 
 Distance from roads is included as a proxy for ease of access, as sites closer to major roads likely have more exposure to people, who may spread HWA.
@@ -45,12 +51,23 @@ Distance from roads is included as a proxy for ease of access, as sites closer t
 ### Preprocessing
 
 
-All layers were reprojected to WGS 84, for the purpose of simplicity. 
-Terrain products were calculated from a 90m SRTM raster image using QGIS tools. 
-NY and PA roads were selected. 
+All spatial data preprocessing took place is QGIS 3.28.14.
+All layers were reprojected to EPSG 5070, NAD 83 Conus Albers. 
+All layers were clipped to the study area, including raster images.
+The 
 
-Using the centroid tool in QGIS, I extracted centroids for all polygon and line HWA presence observations
+### Normalization
 
+This project relies heavily on images, so the majority of the tables will be raster tables, and will not require normalization.
+The vector layers that are included in this project 
+
+## Repo Contents
+
+- Submissions folder
+  * outline (submission 1)
+  * importing commands (contains code to be ran in command line to read datasets into sql code)
+-  read_data (contains .sql files to read into psql)
+-  figures (contains figures in read me)
 
 ### Citations
 
