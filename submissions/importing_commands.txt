@@ -1,3 +1,5 @@
+----- Utilities to import into sql files (run in command line)
+
 shp2pgsql -s 5070 -I data\data_layers\HWA_observations.shp public.HWA_points > read_data\HWA_obs.sql
 shp2pgsql -s 5070 -I data\data_layers\major_roads.shp public.roads > read_data\roads.sql
 
@@ -8,3 +10,21 @@ raster2pgsql -s 5070 -I -C -M data\data_layers\annual_precip.tif public.precip >
 raster2pgsql -s 5070 -I -C -M data\data_layers\coldest_low.tif public.low_temp > read_data\low_temp.sql
 raster2pgsql -s 5070 -I -C -M data\data_layers\warmest_high.tif public.high_temp > read_data\high_temp.sql
 raster2pgsql -s 5070 -I -C -M data\data_layers\easternhemlock_basalarea.tif public.hemlock_area > read_data\hemlock_area.sql
+
+
+---------read files into sql database 
+(run in psql)
+CREATE EXTENSION postgis;
+CREATE EXTENSION postgis_raster;
+
+(command line)
+psql -U postgres -d HWA_db -f read_data\hemlock_area.sql
+psql -U postgres -d HWA_db -f read_data\high_temp.sql
+psql -U postgres -d HWA_db -f read_data\low_temp.sql
+psql -U postgres -d HWA_db -f read_data\precip.sql
+psql -U postgres -d HWA_db -f read_data\roads.sql
+psql -U postgres -d HWA_db -f read_data\HWA_obs.sql
+
+psql -U postgres -d HWA_db -f big_files\aspect.sql
+psql -U postgres -d HWA_db -f big_files\elevation.sql
+psql -U postgres -d HWA_db -f big_files\slope.sql
