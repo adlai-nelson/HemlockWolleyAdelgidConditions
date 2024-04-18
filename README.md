@@ -59,14 +59,16 @@ All layers were clipped to the study area, using the clip and clip raster by mas
 The HWA observations layer was distributed as three seperate layers: points, lines, and polygons. 
 To combine these datasets, the centroid tool was used to calculate the centroid of each line and polygon feature.
 The resultant features were merged with the points layer, to create a layer containing all observations in point form.
-Slope and aspect layers were calculated in QGIS from the STRM DEM after it was reprojected. 
 
 Data was then exported to .sql files using the shp2pgsql and raster2pgsql utilities (see submissions/importing_commands.txt).
+
+Because the slope and aspect images were too large to import into Postgres, only the elevation image was imported into the database, 
+where slope and aspect images were created using the postgis functions ST_Slope and ST_Aspect, respectively.
 
 ### Normalization
 
 This project relies heavily on images, so the majority of the tables will be raster tables, and will not require normalization.
-The vector layers that are included in this project 
+The vector layers that are included in this project, roads, and HWA observations were already in 1NF, as all entries were atomic, were of the same datatype, were indipendandt of order, and .....
 
 ## Repo Contents
 
