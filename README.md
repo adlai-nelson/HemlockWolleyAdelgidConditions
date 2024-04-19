@@ -68,7 +68,8 @@ where slope and aspect images were created using the postgis functions ST_Slope 
 ### Normalization
 
 This project relies heavily on images, so the majority of the tables will be raster tables, and will not require normalization.
-The vector layers that are included in this project, roads, and HWA observations were already in 1NF, as all entries were atomic, were of the same datatype, were indipendandt of order, and .....
+The vector layers that are included in this project: roads and HWA observations were already in 1NF, as all entries were atomic, were of the same datatype, were stored indipendant of order, and each column has a unique name. Both columns also have only one primary key (gid) so they are also 2NF compliant. 
+I decided to not normalize any further and remain at 2NF, as the attributes stored in these tables are unimportant to my analysis, I am only really interested in their locations, so I do not need to normalize further.
 
 ## Repo Contents
 
