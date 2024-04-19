@@ -61,6 +61,8 @@ To combine these datasets, the centroid tool was used to calculate the centroid 
 The resultant features were merged with the points layer, to create a layer containing all observations in point form.
 
 Data was then exported to .sql files using the shp2pgsql and raster2pgsql utilities (see submissions/importing_commands.txt).
+The subsequent sql files were then read into the pgsql database.
+
 
 Because the slope and aspect images were too large to import into Postgres, only the elevation image was imported into the database, 
 where slope and aspect images were created using the postgis functions ST_Slope and ST_Aspect, respectively.
