@@ -41,7 +41,7 @@ imapinvasives.net partners with agencies in states to record observations, and t
 | Annual Rainfall            | raster images        | 2.5 arc minutes | 1970-2000 | WorldClim           | Mean rainfall (mm)                                                    |
 
 Terrain varibales included are elevation, slope, aspect. These will be used to asses if there is a relationship between HWA infestations and these variables. 
-These data were created from a DEM from SRTM.
+These data were created from a DEM from SRTM, imported with the opentopography extension for QGIS.
 Environmental variables include the mean annual rainfall, minimum temperature of coldest month and maximum temperature of the warmest month. 
 These datasets all come from WoldClim, and are long term averages over 30 years. 
 
