@@ -1,0 +1,41 @@
+---
+title: "Read in Graphs"
+output: html_document
+date: "2024-04-22"
+---
+
+```{r}
+library(dplyr)
+library(ggplot2)
+library(cowplot)
+
+hightemp <- read.csv("../results/hightemp_hwa.csv") %>% 
+  mutate(high_temp = as.numeric(high_temp))
+lowtemp <- read.csv("../results/lowtemp_hwa.csv" ) %>% 
+  mutate(low_temp = as.numeric(low_temp))
+precip <- read.csv("../results/precip_hwa.csv") %>% 
+  mutate(precip = as.numeric(precip))
+droads <- read.csv("../results/droads_hwa.csv") %>% 
+  mutate(dist = as.numeric(dist))
+hemlockarea <- read.csv("../results/hemlockarea_hwa.csv") %>% 
+  mutate(helock_area = as.numeric(helock_area))
+
+
+p1 <- ggplot(data = hightemp, aes(x = high_temp)) +
+  geom_histogram(binwidth = 0.25)
+
+p2 <- ggplot(data = lowtemp, aes(x = low_temp)) +
+  geom_histogram(binwidth = 0.25)
+
+p3 <- ggplot(data = precip, aes(x = precip)) +
+  geom_histogram(binwidth = 25)
+
+p4 <- ggplot(data = droads, aes(x = dist)) +
+  geom_histogram(binwidth = 500)
+
+p5 <- ggplot(data = hemlockarea, aes(x = helock_area)) +
+  geom_histogram(binwidth = 2)
+
+plot_grid(p1, p2, p3, p4, p5)
+```
+
