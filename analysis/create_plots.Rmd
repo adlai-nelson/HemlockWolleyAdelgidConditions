@@ -19,23 +19,46 @@ droads <- read.csv("../results/droads_hwa.csv") %>%
   mutate(dist = as.numeric(dist))
 hemlockarea <- read.csv("../results/hemlockarea_hwa.csv") %>% 
   mutate(helock_area = as.numeric(helock_area))
+elevation <- read.csv("../results/elevation_hwa.csv") %>% 
+  mutate(elevation = as.numeric(elevation))
 
+
+mean(hightemp$high_temp, na.rm = T) - sd(hightemp$high_temp, na.rm = T)
+mean(hightemp$high_temp, na.rm = T) + sd(hightemp$high_temp, na.rm = T)
+
+mean(lowtemp$low_temp, na.rm = T) - sd(lowtemp$low_temp, na.rm = T)
+mean(lowtemp$low_temp, na.rm = T) + sd(lowtemp$low_temp, na.rm = T)
+
+mean(precip$precip, na.rm = T) - sd(precip$precip, na.rm = T)
+mean(precip$precip, na.rm = T) + sd(precip$precip, na.rm = T)
+
+mean(droads$dist, na.rm = T) - sd(droads$dist, na.rm = T)
+mean(droads$dist, na.rm = T) + sd(droads$dist, na.rm = T)
+
+mean(hemlockarea$helock_area, na.rm = T) - sd(hemlockarea$helock_area, na.rm = T)
+mean(hemlockarea$helock_area, na.rm = T) + sd(hemlockarea$helock_area, na.rm = T)
+
+mean(elevation$elevation, na.rm = T) - sd(elevation$elevation, na.rm = T)
+mean(elevation$elevation, na.rm = T) + sd(elevation$elevation, na.rm = T)
 
 p1 <- ggplot(data = hightemp, aes(x = high_temp)) +
-  geom_histogram(binwidth = 0.25)
+  geom_histogram(binwidth = 0.25) + ggtitle("High temp of warmest month")
 
 p2 <- ggplot(data = lowtemp, aes(x = low_temp)) +
-  geom_histogram(binwidth = 0.25)
+  geom_histogram(binwidth = 0.25) + ggtitle("Low temp of coldest month")
 
 p3 <- ggplot(data = precip, aes(x = precip)) +
-  geom_histogram(binwidth = 25)
+  geom_histogram(binwidth = 25) + ggtitle("Mean yearly precipitation (mm)")
 
 p4 <- ggplot(data = droads, aes(x = dist)) +
-  geom_histogram(binwidth = 500)
+  geom_histogram(binwidth = 500) + ggtitle("Distance to nearest road")
 
 p5 <- ggplot(data = hemlockarea, aes(x = helock_area)) +
-  geom_histogram(binwidth = 2)
+  geom_histogram(binwidth = 2) + ggtitle("E Hemlock basal area (sq ft/ acre)")
 
-plot_grid(p1, p2, p3, p4, p5)
+p6 <- ggplot(data = elevation, aes(x = elevation)) +
+  geom_histogram(binwidth = 25) + ggtitle("Elevation (m)")
+
+plot_grid(p1, p2, p3, p4, p5, p6, ncol = 3)
 ```
 
