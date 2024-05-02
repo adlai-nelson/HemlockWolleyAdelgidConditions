@@ -61,7 +61,7 @@ To combine these datasets, the centroid tool was used to calculate the centroid 
 The resultant features were merged with the points layer, to create a layer containing all observations in point form.
 
 Data was then exported to .sql files using the shp2pgsql and raster2pgsql utilities (see submissions/importing_commands.txt).
-The subsequent sql files were then read into the pgsql database.
+The subsequent sql files were then read into a postgis enabled psql database.
 
 ```
 raster2pgsql -s 5070 -I -C -M data\data_layers\elevation.tif public.elevation > read_data\elevation.sql
@@ -76,6 +76,56 @@ where slope and aspect images were created using the postgis functions ST_Slope 
 This project relies heavily on images, so the majority of the tables will be raster tables, and will not require normalization.
 The vector layers that are included in this project: roads and HWA observations were already in 1NF, as all entries were atomic, were of the same datatype, were stored indipendant of order, and each column has a unique name. Both columns also have only one primary key (gid) so they are also 2NF compliant. 
 I decided to not normalize any further and remain at 2NF, as the attributes stored in these tables are unimportant to my analysis, I am only really interested in their locations, so I do not need to normalize further.
+
+## Methods
+
+The goal was to find the value of each raster layer at each point where HWA was observed. To this, the postgis function ST_Value was used.
+
+```
+SELECT joined.gid, ST_Value(rast, joined.geom) AS high_temp
+FROM high_temp CROSS JOIN hwa_points AS joined;
+```
+
+Calculating the distance from nearest road required a slightly more complicated query:
+
+```
+SELECT
+  points.gid,
+  closest_road.gid,
+  closest_road.dist
+FROM hwa_points AS points
+CROSS JOIN LATERAL
+  (SELECT
+     gid, -- road gid
+     ST_Distance(road.geom, points.geom) as dist
+     FROM roads AS road 
+     ORDER BY points.geom <-> road.geom
+   LIMIT 1) AS closest_road; 
+```
+
+With these values extracted, they were exported as csv and imported into R, 
+where the R statistics package was used to find the mean and standard deviation of each dataset, and ggplot2 was used to create visualizations of the datasets.
+With the mean and standard deviation calculated, the ideal conditions for HWA were calculated (within 1 sd of the mean) and new columns were created using ST_DumpAsPolygons. 
+
+```
+CREATE TABLE lowtemp_area
+AS
+SELECT val, geom
+FROM (
+SELECT poly.*
+FROM low_temp, LATERAL ST_DumpAsPolygons(rast) AS poly
+) As item
+WHERE val BETWEEN -11.725 and -9.098477
+ORDER BY val;
+
+```
+
+For distance to roads, the buffer function was used instead.
+The database was connected to QGIS, and these layers were used to create visualations of the ideal contions. 
+
+
+## Results
+
 
 ## Repo Contents
 
