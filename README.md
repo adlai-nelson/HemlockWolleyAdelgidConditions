@@ -63,6 +63,10 @@ The resultant features were merged with the points layer, to create a layer cont
 Data was then exported to .sql files using the shp2pgsql and raster2pgsql utilities (see submissions/importing_commands.txt).
 The subsequent sql files were then read into the pgsql database.
 
+```
+raster2pgsql -s 5070 -I -C -M data\data_layers\elevation.tif public.elevation > read_data\elevation.sql
+psql -U postgres -d HWA_db -f big_files\elevation.sql
+```
 
 Because the slope and aspect images were too large to import into Postgres, only the elevation image was imported into the database, 
 where slope and aspect images were created using the postgis functions ST_Slope and ST_Aspect, respectively.
