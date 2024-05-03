@@ -135,7 +135,15 @@ The database was connected to QGIS, and these layers were used to create visuala
 
 ## Results
 
-<img src="figures/vulnerable_areas.png" alt="map of roads in study area" width="600"/>
+Below are histograms showing the distribution of predictor variables. Most variables show expected results (normal distributions). 
+However, the hemlock basal are result is interesting, as most of the HWA observations are at areas with little to no hemlock trees. 
+This is clearly a data error, and I beleive the basal area dataset may be imperfect. Furthermore, the aspect results indicate that HWA occurs most on east and west facing slopes. Becuase the aspect results do not follow a normal distribution, the mean and standard deviation area was not taken into consideration in the final map.
+
+<img src="figures/vars_hist.png" alt="histograms of variables" width="900"/>
+
+Below is a map of risk factors, all symbolized in a translucent red color, the deeper red, the more risk factors overlap in that area.
+
+<img src="figures/vulnerable_areas.png" alt="map of roads in study area" width="400"/>
 
 ## Repo Contents
 
@@ -143,7 +151,12 @@ The database was connected to QGIS, and these layers were used to create visuala
   * outline (submission 1)
   * importing commands (contains code to be ran in command line to read datasets into sql code)
 -  read_data (contains .sql files to read into psql)
--  figures (contains figures in read me)
+-  results (.csv files from sql queries of raster values at HWA points)
+-  figures (contains figures in readme)
+-  analysis
+   * analysis.sql (contains st_value and distance queries to create csv files)
+   * createlayers.sql (contains st_dumpaspolygons queries to create layers of ideal HWA conditions)
+   * create_plots.rmd (contains r code to find mean and sd, and create ggplot visualizations)
 
 ### Citations
 
