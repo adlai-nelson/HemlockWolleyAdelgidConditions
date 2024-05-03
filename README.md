@@ -143,7 +143,7 @@ This is clearly a data error, and I beleive the basal area dataset may be imperf
 
 Below is a map of risk factors, all symbolized in a translucent red color, the deeper red, the more risk factors overlap in that area.
 
-<img src="figures/vulnerable_areas.png" alt="map of roads in study area" width="400"/>
+<img src="figures/vulnerable_areas.png" alt="map of roads in study area" width="600"/>
 
 ## Repo Contents
 
@@ -158,7 +158,7 @@ Below is a map of risk factors, all symbolized in a translucent red color, the d
    * createlayers.sql (contains st_dumpaspolygons queries to create layers of ideal HWA conditions)
    * create_plots.rmd (contains r code to find mean and sd, and create ggplot visualizations)
 
-### Citations
+## Citations
 
 iMapInvasives: NatureServe’s online data system supporting strategic invasive species management. © [2024], NatureServe. Available at http://www.imapinvasives.org. (Date accessed: [01,04,2024].)
 
