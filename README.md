@@ -68,14 +68,17 @@ raster2pgsql -s 5070 -I -C -M data\data_layers\elevation.tif public.elevation > 
 psql -U postgres -d HWA_db -f big_files\elevation.sql
 ```
 
-Because the slope and aspect images were too large to import into Postgres, only the elevation image was imported into the database, 
-where slope and aspect images were created using the postgis functions ST_Slope and ST_Aspect, respectively.
+The slope and aspect images were imported using the `-t 100x100` tag to tile the raster image
 
 ### Normalization
 
 This project relies heavily on images, so the majority of the tables will be raster tables, and will not require normalization.
 The vector layers that are included in this project: roads and HWA observations were already in 1NF, as all entries were atomic, were of the same datatype, were stored indipendant of order, and each column has a unique name. Both columns also have only one primary key (gid) so they are also 2NF compliant. 
 I decided to not normalize any further and remain at 2NF, as the attributes stored in these tables are unimportant to my analysis, I am only really interested in their locations, so I do not need to normalize further.
+
+
+<img src="figures/table.png" alt="2NF normalized table" width="900"/>
+
 
 ## Methods
 
@@ -85,6 +88,12 @@ The goal was to find the value of each raster layer at each point where HWA was 
 SELECT joined.gid, ST_Value(rast, joined.geom) AS high_temp
 FROM high_temp CROSS JOIN hwa_points AS joined;
 ```
+
+The slope and aspect rasters were especially difficult, as running this query using those images resulted in PGAdmin to crash repeatedly. 
+Because the output was needed to be in a csv format, the query could not be run in the command line interface. 
+Ultimately, the raster layers were loaded into QGIS using the data source manager, and the raster values at HWA points were extracted using the 'sample raster values' tool. 
+This also had the advantage than working much faster than the postGIS query, as the query took ~30 minutes in postGIS and only 3-5 seconds in QGIS.
+
 
 Calculating the distance from nearest road required a slightly more complicated query:
 
@@ -126,6 +135,7 @@ The database was connected to QGIS, and these layers were used to create visuala
 
 ## Results
 
+<img src="figures/vulnerable_areas.png" alt="map of roads in study area" width="600"/>
 
 ## Repo Contents
 
