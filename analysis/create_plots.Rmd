@@ -8,6 +8,7 @@ date: "2024-04-22"
 library(dplyr)
 library(ggplot2)
 library(cowplot)
+library(sf)
 
 hightemp <- read.csv("../results/hightemp_hwa.csv") %>% 
   mutate(high_temp = as.numeric(high_temp))
@@ -21,7 +22,7 @@ hemlockarea <- read.csv("../results/hemlockarea_hwa.csv") %>%
   mutate(helock_area = as.numeric(helock_area))
 elevation <- read.csv("../results/elevation_hwa.csv") %>% 
   mutate(elevation = as.numeric(elevation))
-
+slopeelev <- st_read("../data/sample_points.shp")
 
 mean(hightemp$high_temp, na.rm = T) - sd(hightemp$high_temp, na.rm = T)
 mean(hightemp$high_temp, na.rm = T) + sd(hightemp$high_temp, na.rm = T)
@@ -40,6 +41,12 @@ mean(hemlockarea$helock_area, na.rm = T) + sd(hemlockarea$helock_area, na.rm = T
 
 mean(elevation$elevation, na.rm = T) - sd(elevation$elevation, na.rm = T)
 mean(elevation$elevation, na.rm = T) + sd(elevation$elevation, na.rm = T)
+# aspect
+mean(slopeelev$SAMPLE_1, na.rm = T) - sd(slopeelev$SAMPLE_1, na.rm = T)
+mean(slopeelev$SAMPLE_1, na.rm = T) + sd(slopeelev$SAMPLE_1, na.rm = T)
+#slope
+mean(slopeelev$SAMPLE_1_2, na.rm = T) - sd(slopeelev$SAMPLE_1_2, na.rm = T)
+mean(slopeelev$SAMPLE_1_2, na.rm = T) + sd(slopeelev$SAMPLE_1_2, na.rm = T)
 
 p1 <- ggplot(data = hightemp, aes(x = high_temp)) +
   geom_histogram(binwidth = 0.25) + ggtitle("High temp of warmest month")
@@ -59,6 +66,12 @@ p5 <- ggplot(data = hemlockarea, aes(x = helock_area)) +
 p6 <- ggplot(data = elevation, aes(x = elevation)) +
   geom_histogram(binwidth = 25) + ggtitle("Elevation (m)")
 
-plot_grid(p1, p2, p3, p4, p5, p6, ncol = 3)
+p7 <- ggplot(data = slopeelev, aes(x = SAMPLE_1)) +
+  geom_histogram(binwidth = 10) + ggtitle("Aspect (degrees)")
+
+p8 <- ggplot(data = slopeelev, aes(x = SAMPLE_1_2)) +
+  geom_histogram(binwidth = 1) + ggtitle("Slope (degrees)")
+
+plot_grid(p1, p2, p3, p4, p5, p6, p7, p8, ncol = 4)
 ```
 
