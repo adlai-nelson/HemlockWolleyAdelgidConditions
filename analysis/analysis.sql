@@ -19,7 +19,7 @@ CROSS JOIN LATERAL -- join tables
 -- select raster values where hwa was observed
 -- high temperature of warmest month
 SELECT thing.gid, ST_Value(rast, thing.geom) AS high_temp
-FROM high_temp CROSS JOIN hwa_points AS thing;
+FROM high_temp CROSS JOIN hwa_points AS thing;   -- cross join required for st value function
 
 -- low temperature of lowest month
 SELECT thing.gid, ST_Value(rast, thing.geom) AS low_temp

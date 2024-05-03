@@ -1,14 +1,14 @@
 -- source: https://postgis.net/docs/RT_ST_DumpAsPolygons.html
 -- create layers of risk area
 -- high temp
-CREATE TABLE hightemp_area
+CREATE TABLE hightemp_area -- create new table
 AS
-SELECT val, geom
+SELECT val, geom -- select desired columns
 FROM (
 SELECT poly.*
-FROM high_temp, LATERAL ST_DumpAsPolygons(rast) AS poly
+FROM high_temp, LATERAL ST_DumpAsPolygons(rast) AS poly -- dump as polygons turns raster pixels of same value into multipolygons
 ) As item
-WHERE val BETWEEN 25.46047 and 27.60675
+WHERE val BETWEEN 25.46047 and 27.60675 -- 1 sd away from mean in either direction
 ORDER BY val;
 
 -- high temp
@@ -40,6 +40,16 @@ SELECT poly.*
 FROM elevation, LATERAL ST_DumpAsPolygons(rast) AS poly
 ) As item
 WHERE val BETWEEN 168.4558 and 479.6323
+ORDER BY val;
+
+CREATE TABLE slope_area
+AS
+SELECT val, geom
+FROM (
+SELECT poly.*
+FROM slope, LATERAL ST_DumpAsPolygons(rast) AS poly
+) As item
+WHERE val BETWEEN 2.373058 and 14.78435
 ORDER BY val;
 
 -- buffer around roads
