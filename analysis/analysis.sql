@@ -37,3 +37,11 @@ FROM hemlock_area CROSS JOIN hwa_points AS thing;
 SELECT thing.gid, ST_Value(rast, thing.geom) AS elevation
 FROM elevation CROSS JOIN hwa_points AS thing;
 
+-- slope
+SELECT thing.gid, ST_Value(rast, thing.geom) AS slope
+FROM slope CROSS JOIN hwa_points AS thing;
+
+-- aspect
+SELECT thing.gid, ST_Value(rast, thing.geom) AS aspect
+FROM aspect CROSS JOIN hwa_points AS thing;
+

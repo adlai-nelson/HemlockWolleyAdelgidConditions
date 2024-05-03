@@ -4,13 +4,13 @@ shp2pgsql -s 5070 -I data\data_layers\HWA_observations.shp public.HWA_points > r
 shp2pgsql -s 5070 -I data\data_layers\major_roads.shp public.roads > read_data\roads.sql
 
 raster2pgsql -s 5070 -I -C -M data\data_layers\elevation.tif public.elevation > read_data\elevation.sql
-raster2pgsql -s 5070 -I -C -M data\data_layers\slope.tif public.slope > read_data\slope.sql
-raster2pgsql -s 5070 -I -C -M data\data_layers\aspect.tif public.aspect > read_data\aspect.sql
 raster2pgsql -s 5070 -I -C -M data\data_layers\annual_precip.tif public.precip > read_data\precip.sql
 raster2pgsql -s 5070 -I -C -M data\data_layers\coldest_low.tif public.low_temp > read_data\low_temp.sql
 raster2pgsql -s 5070 -I -C -M data\data_layers\warmest_high.tif public.high_temp > read_data\high_temp.sql
 raster2pgsql -s 5070 -I -C -M data\data_layers\easternhemlock_basalarea.tif public.hemlock_area > read_data\hemlock_area.sql
 
+raster2pgsql -s 5070 -I -C -M -t 100x100 data\data_layers\slope.tif public.slope > big_files\slope.sql
+raster2pgsql -s 5070 -I -C -M -t 100x100 data\data_layers\aspect.tif public.aspect > big_files\aspect.sql
 
 ---------read files into sql database 
 (run in psql)
